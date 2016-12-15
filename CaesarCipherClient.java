@@ -13,7 +13,7 @@ import java.io.PrintWriter;
  * 	1. read input from the user, and encrypt the message before sending it off to the server
  * 	2. listen for a response from the server, unencrypting and displaying the server's message
  *
- * Caesar Cipher Client Algorithm (TL;DR):
+ * Caesar Cipher Client Algorithm:
  * 	1.Read user input (stdIn)
  *	2.Send input to server (out)
  * 	3.Receive message back from server (in.readLine())
@@ -36,7 +36,6 @@ import java.io.PrintWriter;
  *
  * @author David Michel djm43
  * @date 11 May 2016
- * @version 03 Oct 2016
  *
  */
 public class CaesarCipherClient {
@@ -49,6 +48,7 @@ public class CaesarCipherClient {
 		String hostname = args[0];
 		int port = Integer.parseInt(args[1]);
 
+		//initialize variables
 		Socket MyClient = null;
 		BufferedReader in = null;
 		BufferedReader stdIn = null;
@@ -60,9 +60,9 @@ public class CaesarCipherClient {
 		String inputStr = "";
 		String encryptedMsg = "";
 		String unencryptedMsg = "";
-		System.out.println("Welcome to Caesar Chavez's Super Cipher Service!");
+		System.out.println("Welcome to Caesar's Super Cipher Service!");
 
-		//CONNECT TO SOCKET
+		//connect to socket
 		try {
 			MyClient = new Socket(hostname, port);
 		} catch (UnknownHostException e) {
